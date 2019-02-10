@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/brucemakallan/learn-express#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "express": "^4.16.4"
   },
   "devDependencies": {
