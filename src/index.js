@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load();
+	require('dotenv').load();
 }
 const app = require('./api/routes');
 const port = process.env.PORT || 8261;
