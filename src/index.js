@@ -1,6 +1,6 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load();
 }
-const app = require('./api');
-const port = process.env.PORT || 8000;
+const app = require('./api/routes');
+const port = process.env.PORT || 8261;
 app.listen(port, () => console.log(`Listening on port ${port} ...`));

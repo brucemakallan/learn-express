@@ -1,6 +1,7 @@
 const express = require('express');
+const controllers = require('./controllers');
 
 const app = express();
-app.get('/', (req, res) => res.send('Welcome!'));
+app.get('/', controllers.welcome);
 
 module.exports = app;
