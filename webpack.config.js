@@ -13,9 +13,6 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js'
   },
-  devServer: {
-    contentBase: './src'
-  },
   externals: [webpackNodeExternals()],
   module: {
     rules: [

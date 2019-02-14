@@ -4,7 +4,6 @@
   "description": "Learn the Express JS Framework",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server --open --config=webpack.config.js",
     "start": "npm run build && node ./build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
@@ -27,10 +26,8 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "babel-loader": "^8.0.5",
-    "nodemon": "^1.18.10",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14",
     "webpack-node-externals": "^1.7.2"
   }
 }
