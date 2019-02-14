@@ -90,11 +90,10 @@
 /*!**************************!*\
   !*** ./src/api/index.js ***!
   \**************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n\nvar app = express__WEBPACK_IMPORTED_MODULE_0___default()();\napp.get('/', function (req, res) {\n  return res.send('Welcome! Learning CRUD in Express API');\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (app);\n\n//# sourceURL=webpack:///./src/api/index.js?");
+eval("const express = __webpack_require__(/*! express */ \"express\");\n\nconst app = express();\napp.get('/', (req, res) => res.send('Welcome! Learning CRUD in Express API'));\n\nmodule.exports = app;\n\n\n//# sourceURL=webpack:///./src/api/index.js?");
 
 /***/ }),
 
@@ -102,11 +101,10 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var expr
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var dotenv__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dotenv */ \"dotenv\");\n/* harmony import */ var dotenv__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dotenv__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api */ \"./src/api/index.js\");\n\n\nif (true) {\n  dotenv__WEBPACK_IMPORTED_MODULE_0___default.a.load();\n}\n\n\nvar port = process.env.PORT || 3000;\n_api__WEBPACK_IMPORTED_MODULE_1__[\"default\"].listen(port, function () {\n  return console.log(\"Listening on port \".concat(port, \" ...\"));\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("if (true) {\n  __webpack_require__(/*! dotenv */ \"dotenv\").load();\n}\nconst app = __webpack_require__(/*! ./api */ \"./src/api/index.js\");\nconst port = process.env.PORT || 3000;\napp.listen(port, () => console.log(`Listening on port ${port} ...`));\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

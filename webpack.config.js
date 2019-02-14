@@ -13,16 +13,5 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js'
   },
-  externals: [webpackNodeExternals()],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-        }
-      }
-    ]
-  }
+  externals: [webpackNodeExternals()]
 };
