@@ -1,60 +1,61 @@
 const isCourseValid = require('./validation');
+const Course = require('./models');
 
-// temp data. To be replaced with MongoDB
-const courses = [
-	{id: 1, name: 'Learning JS'},
-	{id: 2, name: 'Intro to Python'},
-	{id: 3, name: 'Astrophysics'},
-	{id: 4, name: 'The science of love'},
-	{id: 5, name: 'Pet care'},
-	{id: 6, name: 'Why indoor cats may be happier'},
-	{id: 7, name: 'Into the multiverse'}
-];
+const WELCOME_MESSAGE = 'Welcome!';
+const NOT_FOUND_MESSAGE = 'Course not found';
 
-const welcome = (req, res) => res.send({message: 'Welcome!'});
+// Get welcome message
+const welcome = (req, res) => res.send({message: WELCOME_MESSAGE});
 
 // Get all courses as a list
-const getAllCourses = (req, res) => 
-	courses
-		? res.send(courses)
-		: res.status(404).send({message: 'No courses available'});
+const getAllCourses = (req, res) =>
+	Course.find(
+		{},
+		(err, courses) => err ? res.status(500).send({message: err.message}) : res.status(200).send(courses)
+	);
 
 // Get one specific course by id
-const getSpecificCourse = (req, res) => {
-	const course = courses.find(c => c.id === Number(req.params.id));	
-	course
-		? res.send(course)
-		: res.status(404).send({message: 'Course not found'});
-};
+const getSpecificCourse = (req, res) =>
+	Course.findById(
+		req.params.id,
+		(err, course) => {
+			if(err) res.status(500).send({message: err.message});
+			else course ? res.status(200).send(course) : res.status(404).send({message: NOT_FOUND_MESSAGE});
+		}
+	);
 
 // Post a new course
 const postCourse = (req, res) => {
-	const course = {
-		id: courses.length + 1,
-		name: req.body.name
-	};
 	if (isCourseValid(req, res)) {
-		courses.push(course);
-		res.status(201).send(course);
+		const course = new Course;
+		course.name = req.body.name;
+		course.save((err) => err ? res.status(500).send({message: err.message}) : res.status(201).send(course));
 	}
 };
 
 // Update a course
 const updateCourse = (req, res) => {
-	const course = courses.find(c => c.id === Number(req.params.id));
-	if (course && isCourseValid(req, res)) {
-		course.name = req.body.name;
-		res.send(course);
+	if (isCourseValid(req, res)) {
+		Course.findOneAndUpdate(
+			{_id: req.params.id},
+			req.body,
+			(err, course) => {
+				if(err) res.status(500).send({message: err.message});
+				else course ? res.status(200).send(course) : res.status(404).send({message: NOT_FOUND_MESSAGE});
+			}
+		);
 	}
-	else res.status(404).send({message: 'Course not found'});
 };
 
 // Delete a course
-const deleteCourse = (req, res) => {
-	const course = courses.find(c => c.id === Number(req.params.id));	
-	if(course) res.send(courses.splice(courses.indexOf(course), 1)[0]);
-	else res.status(404).send({message: 'Course not found'});
-};
+const deleteCourse = (req, res) =>
+	Course.findByIdAndDelete(
+		req.params.id,
+		(err, course) => {
+			if(err) res.status(500).send({message: err.message});
+			else course ? res.status(200).send(course) : res.status(404).send({message: NOT_FOUND_MESSAGE});
+		}
+	);
 
 module.exports = {
 	welcome,

@@ -17,7 +17,7 @@ module.exports = {
         "curly": [2, "multi-line"],
         "no-shadow": "warn", // disallow variable declarations from shadowing variables declared in the outer scope
         "eol-last": ["error", "always"], // require newline at the end of files
-        "max-len": ["error", { "code": 100 }],
+        "max-len": ["error", { "code": 120 }],
         "no-console": "warn"
     }
 };
