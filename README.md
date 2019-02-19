@@ -58,6 +58,21 @@ npm i -D mocha
 npm i -D chai
 ```
 
+Add instanbul's `nyc` to show code test coverage with the help of Travis CI and Coveralls 
+https://istanbul.js.org/docs/tutorials/mocha/
+https://github.com/istanbuljs/nyc#integrating-with-coveralls
+```
+npm i -D nyc
+npm i -D coveralls
+
+{
+  "script": {
+     "test": "nyc --reporter=html --reporter=text mocha",
+     "coverage": "nyc report --reporter=text-lcov | coveralls"
+  }
+}
+```
+
 #### API
 Read parameters in URL
 

@@ -8,7 +8,8 @@
     "start": "npm run build && node ./build",
     "build": "NODE_ENV=production webpack",
     "lint": "eslint src",
-    "test": "NODE_ENV=testing mocha --exit"
+    "test": "NODE_ENV=testing nyc mocha --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,11 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.13.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
     "supertest": "^3.4.2",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
