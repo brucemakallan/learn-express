@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-// Connect to the remote database
-mongoose.connect(process.env.MONGO_CONNECTION_STRING, { useNewUrlParser: true });
-var db = mongoose.connection;
+// Connect to the database
+const configEnvironment = require(`../../config/${process.env.NODE_ENV}`);
+let connectionUrl = configEnvironment.db;
+mongoose.connect(connectionUrl, { useNewUrlParser: true });
+let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Connected to Database!'));
 

@@ -4,7 +4,6 @@
 - Create `.env` file with the following constants (Do not put their values in quotes)
 ```
 PORT=<PORT>
-NODE_ENV=<development|production>
 MONGO_CONNECTION_STRING=<connection string>
 ```
 
@@ -25,16 +24,39 @@ https://expressjs.com/en/4x/api.html
 https://webpack.js.org/guides/getting-started/
 
 - Node monitor to automatically restart server
-`sudo npm i -g nodemon`
+```
+sudo npm i -g nodemon
+```
 
 - EsLint Rules
 https://eslint.org/docs/rules/ 
-`npm install -g eslint`
-`eslint src`
+```
+npm install -g eslint
+```
+Add `"eslint src"` to `scripts` in `package.json`
+```
+"scripts": {
+  ...
+  "lint": "eslint src"
+  ...
+}
+```
+Run: `npm run lint`
 
 - Joi - for input validation
 https://www.npmjs.com/package/joi 
-`npm i joi`
+```
+npm i joi
+```
+
+- TDD with supertest and Mocha (plus Chai assertion library)
+https://github.com/visionmedia/supertest
+https://www.chaijs.com/guide/styles/#expect
+```
+npm i -D supertest
+npm i -D mocha
+npm i -D chai
+```
 
 #### API
 Read parameters in URL

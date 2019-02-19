@@ -4,10 +4,11 @@
   "description": "Learn the Express JS Framework",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon ./src",
+    "start:dev": "NODE_ENV=development nodemon ./src",
     "start": "npm run build && node ./build",
-    "build": "webpack",
-    "lint": "eslint src"
+    "build": "NODE_ENV=production webpack",
+    "lint": "eslint src",
+    "test": "NODE_ENV=testing mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,11 @@
     "mongoose": "^5.4.12"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^5.13.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.10",
+    "supertest": "^3.4.2",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2"
