@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/brucemakallan/learn-express.svg?branch=develop)](https://travis-ci.org/brucemakallan/learn-express) [![Coverage Status](https://coveralls.io/repos/github/brucemakallan/learn-express/badge.svg)](https://coveralls.io/github/brucemakallan/learn-express)
+
+
 # Learn Express
 
 ### Setup
