@@ -3,16 +3,65 @@
 
 # Learn Express
 
+### Live API on Heroku
+https://express-101.herokuapp.com 
+
+
+- Get a Course
+```
+GET: /api/courses/:id
+
+Sample Response:
+{
+  "_id": "5c694192544d7aa0ff78e21b",
+  "dateCreated": "2019-02-17T11:12:18.407Z",
+  "dateUpdated": "2019-02-17T11:12:18.407Z",
+  "name": "Metaphysics",
+  "__v": 0
+}
+```
+- Post a new Course
+```
+POST: /api/courses
+
+Payload:
+{
+  "name": "Getting started with Express APIs"
+}
+```
+- Get all Courses
+```
+GET: /api/courses
+```
+- Update a Course
+```
+PUT: /api/courses/:id
+
+Payload:
+{
+  "name": "Getting started with Express APIs"
+}
+```
+- Delete a Course
+```
+DELETE: /api/courses/:id
+```
+
+
 ### Setup
 - Create `.env` file with the following constants (Do not put their values in quotes)
 ```
 PORT=<PORT>
 MONGO_CONNECTION_STRING=<connection string>
 ```
+*RECOMMENDATION*:
+Use a Cloud-Hosted MongoDB e.g. From MongoDB Atlas (https://www.mongodb.com/cloud/atlas). This will work on both on localhost and the deployment environment without need to setup the database.
+
+To view and/or directly manipulate documents (entries) in the MongoDB, try MongoDB Compass (https://www.mongodb.com/products/compass)
 
 - Install dependencies `npm i`
-- Run the server in production mode `npm run start`
-- OR: Run the server in development mode `npm run start:dev`
+- Run the server in development mode `npm run start:dev`
+- OR: Run the server in production mode `npm run start`
 
 ### Notes
 
