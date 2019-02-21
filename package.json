@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "Learn the Express JS Framework",
   "main": "index.js",
+  "engines": {
+    "node": "8.12.0"
+  },
   "scripts": {
     "start:dev": "NODE_ENV=development nodemon ./src",
     "start": "npm run build && node ./build",
     "build": "NODE_ENV=production webpack",
     "lint": "eslint src",
     "test": "NODE_ENV=testing nyc mocha --exit",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -26,7 +30,10 @@
     "express": "^4.16.4",
     "joi": "^14.3.1",
     "lodash": "^4.17.11",
-    "mongoose": "^5.4.12"
+    "mongoose": "^5.4.12",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -35,10 +42,7 @@
     "mocha": "^5.2.0",
     "nodemon": "^1.18.10",
     "nyc": "^13.3.0",
-    "supertest": "^3.4.2",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3",
-    "webpack-node-externals": "^1.7.2"
+    "supertest": "^3.4.2"
   },
   "nyc": {
     "include": [
